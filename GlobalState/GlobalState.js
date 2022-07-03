@@ -21,41 +21,22 @@ const initUser = {
   profile: null,
 };
 
-// const reportInit = {
-//   name: "",
-//   dob: "",
-//   address: "",
-//   age: "",
-//   height: "",
-//   skinColor: "",
-//   ethnicity: "",
-//   description: "",
-//   lastSeenAddress: "",
-//   lastSeenState: "",
-//   lastSeenLGA: "",
-//   lastSeenDate: "",
-//   email: "",
-//   phone: "",
-//   contactAddress: "",
-// };
-
 const reportInit = {
-  name: "Usman Hassan",
+  name: "",
   dob: "",
   address: "",
-  age: "19",
-  height: "6",
-  skinColor: "black",
-  ethnicity: "hausa",
-  description: "medium height",
-  lastSeenAddress: "Lagos street",
-  lastSeenState: "kano",
-  lastSeenLGA: "Dala",
+  age: "",
+  height: "",
+  skinColor: "",
+  ethnicity: "",
+  description: "",
+  lastSeenAddress: "",
+  lastSeenState: "",
+  lastSeenLGA: "",
   lastSeenDate: "",
-  email: "johndoe@gmail.com",
-  phone: "090909090",
-  contactAddress: "9049353423",
-  image: "",
+  email: "",
+  phone: "",
+  contactAddress: "",
 };
 
 const GlobalProvider = (props) => {
