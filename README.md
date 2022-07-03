@@ -1,4 +1,4 @@
 # safepal
 ### A mobile application to report missing persons and also it sends you a notification if you are around an unsafe area.
-## How to Use
-### Install Expo Go on PlayStore for Android or on AppStore for IOS and view from this link https://exp.host/@khalifa3164/safepal
+## Link to application
+### https://expo.dev/accounts/khalifa3164/projects/safepal/builds/396b0edb-81dc-48ee-846c-c700bd382539
