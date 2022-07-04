@@ -11,9 +11,8 @@ import routes from "../../Navigations/routes";
 import * as Notifications from "expo-notifications";
 
 import LottieView from "lottie-react-native";
-import { StatusBar } from "expo-status-bar";
 
-const GetStartedScreen = ({ navigation }) => {
+const TrackMe = ({ navigation }) => {
   const { user } = React.useContext(GlobalState);
 
   return (
@@ -23,22 +22,22 @@ const GetStartedScreen = ({ navigation }) => {
           <LottieView
             autoPlay
             style={{
-              width: 200,
+              width: 300,
               height: 200,
             }}
-            source={require("../../assets/animation/report.json")}
+            source={require("../../assets/animation/track.json")}
           />
         </View>
         <View>
           <Text style={styles.title} variant="headlineLarge">
-            It is Easy to report a missing persons on Safe Pal
+            Safe Pal can keep track of your location at all time
           </Text>
         </View>
         <Button
           mode="contained"
           style={style.button.style}
           contentStyle={style.button.contentStyle}
-          onPress={() => navigation.navigate(routes.MISSING_PERSON1)}
+          onPress={() => navigation.navigate(routes.TRACK_1)}
         >
           Get Started
         </Button>
@@ -71,4 +70,4 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
 });
-export default GetStartedScreen;
+export default TrackMe;

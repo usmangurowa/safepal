@@ -3,7 +3,7 @@ import { View, StyleSheet } from "react-native";
 import { Button } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 import style from "../../config/style";
-const NextPrevButton = ({ next, prev }) => {
+const NextPrevButton = ({ next, prev, end = false, onEnd }) => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
@@ -17,19 +17,35 @@ const NextPrevButton = ({ next, prev }) => {
       >
         Prev
       </Button>
-      <Button
-        icon="arrow-right"
-        mode="contained"
-        disabled={!Boolean(next)}
-        style={style.button.style}
-        contentStyle={[
-          style.button.contentStyle,
-          { flexDirection: "row-reverse" },
-        ]}
-        onPress={() => navigation.navigate(next)}
-      >
-        Next
-      </Button>
+
+      {!end ? (
+        <Button
+          icon="arrow-right"
+          mode="contained"
+          disabled={!Boolean(next)}
+          style={style.button.style}
+          contentStyle={[
+            style.button.contentStyle,
+            { flexDirection: "row-reverse" },
+          ]}
+          onPress={() => navigation.navigate(next)}
+        >
+          Next
+        </Button>
+      ) : (
+        <Button
+          icon="arrow-right"
+          mode="contained"
+          style={style.button.style}
+          contentStyle={[
+            style.button.contentStyle,
+            { flexDirection: "row-reverse" },
+          ]}
+          onPress={onEnd}
+        >
+          Start
+        </Button>
+      )}
     </View>
   );
 };
@@ -39,6 +55,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     padding: 10,
+    width: "100%",
   },
 });
 export default NextPrevButton;

@@ -6,6 +6,7 @@ import AppNavigator from "./AppNavigator";
 import GetStartedNavigator from "./GetStartedNavigator";
 import GetStartedScreen from "../Screens/CompleteProfileScreen/GetStartedScreen";
 import ReportDetail from "../Screens/AppScreens/ReportDetail";
+import AddMissingNavigator from "./AddMissingNavigator";
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +25,11 @@ const MainNavigator = (props) => (
     <Stack.Screen
       name={routes.COMPLETE_PROFILE}
       component={GetStartedNavigator}
+      options={{ headerShown: false }}
+    />
+    <Stack.Screen
+      name={routes.MISSING}
+      component={AddMissingNavigator}
       options={{ headerShown: false }}
     />
   </Stack.Navigator>

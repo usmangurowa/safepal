@@ -63,7 +63,7 @@ const WelcomeScreen = ({ navigation }) => {
           icon="account"
           onPress={handleAnonnymouse}
         >
-          Annonymouse Sign in
+          Annonymous Sign in
         </Button>
       </View>
     </View>

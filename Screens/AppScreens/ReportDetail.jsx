@@ -1,8 +1,12 @@
 import React from "react";
 import { View, StyleSheet, Image, ScrollView } from "react-native";
-import { Text, Title } from "react-native-paper";
+import { Text, Title, Button } from "react-native-paper";
 
 import colors from "../../config/colors";
+// import Animated from "react-native-reanimated";
+// import BottomSheet from "reanimated-bottom-sheet";
+
+import { BottomSheet } from "react-native-btr";
 
 const ReportDetail = ({ route }) => {
   const {
@@ -23,7 +27,7 @@ const ReportDetail = ({ route }) => {
     contactAddress,
   } = route.params;
 
-  console.log(dob);
+  const [show, setShow] = React.useState(false);
 
   return (
     <View style={styles.container}>
@@ -33,7 +37,7 @@ const ReportDetail = ({ route }) => {
           <Title>Personal information</Title>
           <Text style={styles.txt}>Name: {name}</Text>
           <Text style={styles.txt}>
-            DOB: {new Date(dob.nanoseconds).toDateString()}
+            DOB: {new Date(dob.seconds).toDateString()}
           </Text>
           <Text style={styles.txt}>Age: {age}</Text>
           <Text style={styles.txt}>Height: {height}</Text>
@@ -49,6 +53,7 @@ const ReportDetail = ({ route }) => {
             Date: {new Date(lastSeenDate.seconds).toDateString()}
           </Text>
         </View>
+
         <View style={styles.info}>
           <Title>Contact when this person is seen</Title>
           <Text style={styles.txt}>Phone: {phone}</Text>

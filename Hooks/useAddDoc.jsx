@@ -10,15 +10,15 @@ import { v4 as uuidv4 } from "uuid";
 //   await setDoc(doc(firestore, "users", id), data, { merge: true });
 // };
 
-const ReportMissing = (props) => {
+const useAddDoc = (collection) => {
   const [loading, setLoading] = React.useState(false);
 
-  const handleReport = async (data, callback = () => {}) => {
+  const sendDoc = async (data, callback = () => {}) => {
     setLoading(true);
     const id = uuidv4();
     await setDoc(
-      doc(firestore, "reports", id),
-      { ...data, id, status: "missing" },
+      doc(firestore, collection, id),
+      { ...data, id },
       { merge: true }
     )
       .then((res) => {
@@ -31,7 +31,7 @@ const ReportMissing = (props) => {
       });
   };
 
-  return { loading, handleReport };
+  return { loading, sendDoc };
 };
 
-export default ReportMissing;
+export default useAddDoc;

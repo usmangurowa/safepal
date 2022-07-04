@@ -9,8 +9,9 @@ import * as Permissions from "expo-permissions";
 
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { GlobalState } from "../GlobalState/GlobalState";
-import AddMissingNavigator from "./AddMissingNavigator";
 import UpdateUser from "../Utils/UpdateUser";
+import TrackMeNavigator from "./TrackMeNavigator";
+import EmergencyNavigator from "./EmergencyNavigator";
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -49,16 +50,27 @@ const AppNavigator = () => {
         }}
       />
       <Tab.Screen
-        name={routes.MISSING}
-        component={AddMissingNavigator}
+        name={routes.EMERGENCY}
+        component={EmergencyNavigator}
         options={{
-          tabBarLabel: "Report",
+          tabBarLabel: "Emergency",
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons
-              name="alert-octagon"
+              name="car-emergency"
               color={color}
               size={26}
             />
+          ),
+        }}
+      />
+
+      <Tab.Screen
+        name={routes.TRACK}
+        component={TrackMeNavigator}
+        options={{
+          tabBarLabel: "Track Me",
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="map-marker" color={color} size={26} />
           ),
         }}
       />

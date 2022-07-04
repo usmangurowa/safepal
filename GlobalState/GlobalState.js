@@ -39,12 +39,20 @@ const reportInit = {
   contactAddress: "",
 };
 
+const trackInit = {
+  location: "",
+  time: "",
+  date: "",
+  reason: "",
+};
+
 const GlobalProvider = (props) => {
   const { children } = props;
 
   const [user, setUser] = React.useState(initUser);
 
   const [report, updateReport] = React.useState(reportInit);
+  const [track, updateTrack] = React.useState(trackInit);
 
   const notificationListener = React.useRef();
   const responseListener = React.useRef();
@@ -89,7 +97,9 @@ const GlobalProvider = (props) => {
   }, []);
 
   return (
-    <GlobalState.Provider value={{ user, report, updateReport }}>
+    <GlobalState.Provider
+      value={{ user, report, updateReport, track, updateTrack }}
+    >
       {children}
     </GlobalState.Provider>
   );

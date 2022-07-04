@@ -7,14 +7,16 @@ import style from "../../config/style";
 import { GlobalState } from "../../GlobalState/GlobalState";
 
 import routes from "../../Navigations/routes";
-import ReportMissing from "../../Hooks/ReportMissing";
+// import ReportMissing from "../../Hooks/ReportMissing";
+import useAddDoc from "../../Hooks/useAddDoc";
 import colors from "../../config/colors";
 
 import LottieView from "lottie-react-native";
 
 const SendReport = ({ navigation }) => {
   const { report, updateReport } = React.useContext(GlobalState);
-  const { handleReport, loading } = ReportMissing();
+
+  const { sendDoc, loading } = useAddDoc("reports");
 
   const [modalVisible, setModalVisible] = React.useState(false);
 
@@ -79,7 +81,7 @@ const SendReport = ({ navigation }) => {
           mode="contained"
           style={style.button.style}
           contentStyle={style.button.contentStyle}
-          onPress={() => handleReport(report, onReported)}
+          onPress={() => sendDoc({ ...report, status: "missing" }, onReported)}
         >
           Report
         </Button>

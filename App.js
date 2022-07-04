@@ -6,6 +6,7 @@ import AuthNavigator from "./Navigations/AuthNavigator";
 import { GlobalProvider, GlobalState } from "./GlobalState/GlobalState";
 import AppNavigator from "./Navigations/AppNavigator";
 import MainNavigator from "./Navigations/MainNavigator";
+import { StatusBar } from "expo-status-bar";
 
 const theme = {
   ...DefaultTheme,
@@ -23,6 +24,7 @@ export default function App() {
     <GlobalProvider context={GlobalState}>
       <PaperProvider theme={theme}>
         <NavigationContainer>
+          <StatusBar style="auto" />
           <AppState />
         </NavigationContainer>
       </PaperProvider>
